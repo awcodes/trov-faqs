@@ -38,7 +38,6 @@ use App\Filament\Resources\Trov\FaqResource\Pages\ListFaqs;
 use App\Filament\Resources\Trov\FaqResource\Pages\CreateFaq;
 use TrovComponents\Tables\Columns\TitleWithStatus;
 use TrovComponents\Tables\Filters\SoftDeleteFilter;
-use Trov\Resources\RelationManagers\LinkSetsRelationManager;
 
 class FaqResource extends Resource
 {
@@ -111,7 +110,7 @@ class FaqResource extends Resource
 
     public static function getRelations(): array
     {
-        return array_merge([], config('trov.features.link_sets.active') ? [LinkSetsRelationManager::class] : []);
+        return [];
     }
 
     public static function getPages(): array

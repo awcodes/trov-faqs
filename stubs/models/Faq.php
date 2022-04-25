@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Spatie\Tags\HasTags;
 use Trov\Traits\HasMeta;
-use Trov\Traits\HasLinkSet;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Trov\Traits\HasPublishedScope;
@@ -20,7 +19,6 @@ class Faq extends Model
     use HasPublishedScope;
     use HasMeta;
     use SoftDeletes;
-    use HasLinkSet;
 
     public function getSlugOptions(): SlugOptions
     {
