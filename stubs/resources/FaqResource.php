@@ -22,22 +22,22 @@ use Filament\Forms\Components\Section;
 use FilamentTiptapEditor\TiptapEditor;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Textarea;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use TrovComponents\Forms\TitleWithSlug;
 use Filament\Forms\Components\TextInput;
-use Filament\Tables\Columns\BadgeColumn;
 use Filament\Forms\Components\RichEditor;
 use Filament\Tables\Filters\SelectFilter;
 use TrovComponents\Filament\FixedSidebar;
 use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\Builder\Block;
 use FilamentBardEditor\Components\TestBlock;
-use App\Filament\Resources\Trov\FaqResource\Pages\EditFaq;
 use Filament\Forms\Components\SpatieTagsInput;
-use App\Filament\Resources\Trov\FaqResource\Pages\ListFaqs;
-use App\Filament\Resources\Trov\FaqResource\Pages\CreateFaq;
 use TrovComponents\Tables\Columns\TitleWithStatus;
 use TrovComponents\Tables\Filters\SoftDeleteFilter;
+use App\Filament\Resources\Trov\FaqResource\Pages\EditFaq;
+use App\Filament\Resources\Trov\FaqResource\Pages\ListFaqs;
+use App\Filament\Resources\Trov\FaqResource\Pages\CreateFaq;
 
 class FaqResource extends Resource
 {
@@ -90,15 +90,15 @@ class FaqResource extends Resource
                 TitleWithStatus::make('question')
                     ->searchable()
                     ->sortable(),
-                BadgeColumn::make('meta.indexable')
-                    ->label('SEO')
-                    ->enum([
-                        true => 'Index',
-                        false => '—',
+                IconColumn::make('meta.indexable')
+                    ->label('Indexed')
+                    ->options([
+                        'heroicon-o-check' => true,
+                        'heroicon-o-minus' => false,
                     ])
                     ->colors([
                         'success' => true,
-                        'secondary' => false,
+                        'danger' => false,
                     ]),
                 TextColumn::make('updated_at')->label('Last Updated')->date()->sortable(),
             ])
