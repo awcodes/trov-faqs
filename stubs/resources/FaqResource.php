@@ -88,6 +88,9 @@ class FaqResource extends Resource
         return $table
             ->columns([
                 TitleWithStatus::make('question')
+                    ->statuses(Status::class)
+                    ->hiddenOn(Status::Published->name)
+                    ->colors(Status::colors())
                     ->searchable()
                     ->sortable(),
                 IconColumn::make('meta.indexable')
