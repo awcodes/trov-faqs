@@ -14,7 +14,6 @@ use Trov\Forms\Blocks\ImageLeft;
 use TrovComponents\Enums\Status;
 use Trov\Forms\Blocks\ImageRight;
 use Trov\Forms\Blocks\Infographic;
-use TrovComponents\Filament\Panel;
 use Filament\Forms\Components\Group;
 use TrovComponents\Forms\Timestamps;
 use Filament\Forms\Components\Select;
@@ -66,7 +65,7 @@ class FaqResource extends Resource
                 TitleWithSlug::make('question', 'slug', '/faqs/')->columnSpan('full'),
                 TiptapEditor::make('answer')->profile('default')
             ], [
-                Panel::make('Details')
+                Section::make('Details')
                     ->collapsible()
                     ->schema([
                         Select::make('status')
